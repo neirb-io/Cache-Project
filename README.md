@@ -1,18 +1,18 @@
 # Project-A
-Cache simulation program
+The *main.cpp* file uses *gcc.trace* to implement *DirectMap.H, FullyAssociative.H,* and *SetAssociative.h*.  
 
-
-Trace files can be uploaded and used, although format must be identical to the gcc.trace file and addresses must be 64 bit.
+If you have a trace file you'd like to test, be sure to name it "gcc.trace", or edit line 36 in main.cpp accordingly. Addresses must be 64 bit, but the l and s characters at the beginning of each line, along with the single-digit at the end of each line, are ignored by the program.  So, in theory, any character could replace these and the file will still be read the same.  See the *LoadTraceFile* function in *main.cpp* to better understand how the trace file lines are interpreted.
 
 Test cases can be created/modified in the main.cpp folder. To do so:
 
-1) create an object of your preferred type (DirectMap, FullyAssociative, or SetAssociative).  Follow the parameters as outlined in the .h files.
+1) create an object of your preferred type (DirectMap, FullyAssociative, or SetAssociative).  The first parameter should be the cache size (in bytes), the second paramter should be the number of bytes per line, the third parameter should be the integer 64.
 
-2) the classes have one or two functions depending on the class.  One will correlate to FIFO and one will correlate to LRU.  Call this function with your address list.
+2) the classes have one or two functions depending on the class.  *FullyAssociative.h* and *SetAssociative.h* each have the FIFORatio and LRURatio functions, while *DirectMap.h* only has a HitRatio function.
+3) To compile your program with g++, run the following command in terminal:
 
-3) compile your program.  In terminal, run the following command
+	  g++ o- \*name of program\* main.cpp
 
-	  g++ o- *name of program* main.cpp
-	  ./*name of program*
+4) To run your program, simply use the following command. Note that the function will immediately start printing to terminal and creating a 'data.csv' file in the same directory. This process can take a while.
+		
+	  ./\*name of program\*
 
-4) run your program. the function will immediately start printing to terminal and creating a 'data.csv' file in the same directory.
